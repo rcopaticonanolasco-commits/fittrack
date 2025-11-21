@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión – Tu Bienestar</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(170deg, #0c1a2c, #10294b); /* tonos relajantes azul-morado */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: #f8f9ff; /* fondo muy suave */
+      padding: 2.5rem;
+      border-radius: 12px; /* un poco más redondeado */
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1); /* sombra más suave */
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      transition: transform 0.3s;
+    }
+
+    .login-container:hover {
+      transform: translateY(-4px); /* efecto sutil al pasar el mouse */
+    }
+
+    .login-container h1 {
+      margin-bottom: 0.8rem;
+      font-size: 2rem;
+      color: #4a3aff; /* morado fuerte */
+    }
+
+    .login-container p {
+      margin-bottom: 2rem;
+      color: #5a5a6a; /* gris-morado suave */
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d1c4ff; /* borde morado claro */
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .login-container input[type="email"]:focus,
+    .login-container input[type="password"]:focus {
+      border-color: #4a3aff;
+      box-shadow: 0 0 8px rgba(74, 58, 255, 0.3);
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.75rem;
+      background: linear-gradient(90deg, #6c63ff, #8e7dff); /* degradado morado */
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .login-container button:hover {
+      background: linear-gradient(90deg, #554de1, #7257ff);
+      transform: translateY(-2px);
+    }
+
+    .login-container .links {
+      margin-top: 1.2rem;
+    }
+
+    .login-container a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Bienvenido</h1>
+    <p>Inicia sesión para continuar con tu práctica de bienestar</p>
+
+    <form action="dashboard2.html" method="post">
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <div class="links">
+      <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+      <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
+
+

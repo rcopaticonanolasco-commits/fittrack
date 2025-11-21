@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Bienestar – Inspirado en Calm</title>
+  <style>
+    /* Reset sencillo */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      color: white;
+      background: url('img/fondo.jpg') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    header .hero-content {
+      position: relative;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    header .cta-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #6c63ff; /* tono púrpura-suave como estilo calm */
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    header .cta-button:hover {
+      background-color: #554de1;
+    }
+
+    section.features {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    section.features h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    section.features .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    section.features .feature {
+      flex: 1 1 300px;
+      max-width: 300px;
+      padding: 1rem;
+    }
+
+    section.features .feature img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    section.features .feature h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    section.features .feature p {
+      color: #666;
+    }
+
+    section.subscribe {
+      background-color: #f7f7f7;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    section.subscribe h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    section.subscribe p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    section.subscribe input[type="email"] {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      width: 300px;
+      max-width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+    section.subscribe button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #6c63ff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    section.subscribe button:hover {
+      background-color: #554de1;
+    }
+
+    footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.25rem;
+      }
+      section.features .feature-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero-content">
+      <h1>Encuentra tu momento de calma</h1>
+      <p>Respira, relájate y reconéctate contigo mismo. Bienvenido a tu camino hacia la tranquilidad.</p>
+      <a href="login.html" class="cta-button">Comienza ahora</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <h2>¿Qué ofrecemos?</h2>
+    <div class="feature-list">
+      <div class="feature">
+        <img src="img/fondo.jpg" alt="Meditaciones guiadas">
+        <h3>Meditaciones Guiadas</h3>
+        <p>Sesiones para principiantes y avanzados, adaptadas a tu ritmo y estilo de vida.</p>
+      </div>
+      <div class="feature">
+        <img src="sleep-icon.png" alt="Historias para dormir">
+        <h3>Historias para Dormir</h3>
+        <p>Relájate con historias narradas que te llevan a un sueño profundo y reparador.</p>
+      </div>
+      <div class="feature">
+        <img src="music-icon.png" alt="Música y paisajes sonoros">
+        <h3>Música y Paisajes Sonoros</h3>
+        <p>Ambientes sonoros diseñados para concentrarte, relajarte o dormir mejor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe" class="subscribe">
+    <h2>Únete hoy</h2>
+    <p>Ingresa tu correo para comenzar tu práctica de bienestar.</p>
+    <form>
+      <input type="email" placeholder="Tu correo electrónico" required>
+      <button type="submit">Suscribirse</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 FitTrack. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>

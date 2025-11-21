@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Música – TuBienestar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="logo">TuBienestar</div>
+      <ul class="menu">
+        <li><a href="dashboard.html">🏠 <span>Inicio</span></a></li>
+        <li><a href="meditacion.html">🧘‍♂️ <span>Meditación</span></a></li>
+        <li><a href="sueno.html">🌙 <span>Sueño</span></a></li>
+        <li><a href="musica.html" class="active">🎵 <span>Música</span></a></li>
+        <li><a href="paisajes.html">🌄 <span>Paisajes sonoros</span></a></li>
+        <li><a href="ninos.html">👶 <span>Niños Calm</span></a></li>
+        <li><a href="perfil.html">👤 <span>Perfil</span></a></li>
+      </ul>
+    </div>
+    <footer>Política de privacidad</footer>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <button id="toggleMenu" class="hamburger">☰</button>
+    <h1>Música</h1>
+
+    <div class="cards">
+      <!-- Card 1: Focus Mix -->
+      <article class="card media-card" data-audio="asset/audio/meditation1.mp3" tabindex="0" role="button" aria-label="Reproducir Focus Mix, concentración total">
+        <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=800&q=80" alt="Imagen Focus Mix">
+        <div class="info">
+          <h3>Focus Mix</h3>
+          <p>Concentración total</p>
+        </div>
+        <audio class="audio-player" preload="none"></audio>
+        <button class="play-btn">▶️</button>
+      </article>
+
+      <!-- Card 2: Música relajante -->
+      <article class="card media-card" data-audio="asset/audio/meditation1.mp3" tabindex="0" role="button" aria-label="Reproducir Música relajante">
+        <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=800&q=80" alt="Música relajante">
+        <div class="info">
+          <h3>Música relajante</h3>
+          <p>Relaja tu mente</p>
+        </div>
+        <audio class="audio-player" preload="none"></audio>
+        <button class="play-btn">▶️</button>
+      </article>
+
+      <!-- Card 3: Chill Beats -->
+      <article class="card media-card" data-audio="asset/audio/chill-beats.mp3" tabindex="0" role="button" aria-label="Reproducir Chill Beats, relaja tu día">
+        <img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?auto=format&fit=crop&w=800&q=80" alt="Chill Beats">
+        <div class="info">
+          <h3>Chill Beats</h3>
+          <p>Relaja tu día</p>
+        </div>
+        <audio class="audio-player" preload="none"></audio>
+        <button class="play-btn">▶️</button>
+      </article>
+
+      <!-- Card 4: Deep Sleep -->
+      <article class="card media-card" data-audio="asset/audio/deep-sleep.mp3" tabindex="0" role="button" aria-label="Reproducir Deep Sleep, frecuencias relajantes">
+        <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=80" alt="Deep Sleep">
+        <div class="info">
+          <h3>Deep Sleep</h3>
+          <p>Frecuencias relajantes</p>
+        </div>
+        <audio class="audio-player" preload="none"></audio>
+        <button class="play-btn">▶️</button>
+      </article>
+
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+  
+  
+  <script>
+        const toggleMenu = document.getElementById("toggleMenu");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        toggleMenu.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+        overlay.classList.toggle("show");
+        });
+
+        overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+        });
+  </script>
+
+
+
+</body>
+</html>

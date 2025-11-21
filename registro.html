@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro – Tu Bienestar</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(170deg, #0c1a2c, #10294b); /* mismos tonos que login */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-container {
+      background: #f8f9ff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      transition: transform 0.3s;
+    }
+
+    .register-container:hover {
+      transform: translateY(-4px);
+    }
+
+    .register-container h1 {
+      margin-bottom: 0.8rem;
+      font-size: 2rem;
+      color: #4a3aff;
+    }
+
+    .register-container p {
+      margin-bottom: 2rem;
+      color: #5a5a6a;
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d1c4ff;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .register-container input[type="text"]:focus,
+    .register-container input[type="email"]:focus,
+    .register-container input[type="password"]:focus {
+      border-color: #4a3aff;
+      box-shadow: 0 0 8px rgba(74, 58, 255, 0.3);
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 0.75rem;
+      background: linear-gradient(90deg, #6c63ff, #8e7dff);
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .register-container button:hover {
+      background: linear-gradient(90deg, #554de1, #7257ff);
+      transform: translateY(-2px);
+    }
+
+    .register-container .links {
+      margin-top: 1.2rem;
+    }
+
+    .register-container a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .register-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <h1>Regístrate</h1>
+    <p>Crea una cuenta para empezar tu camino de bienestar</p>
+
+    <form action="dashboard.html" method="post">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <input type="password" placeholder="Confirmar contraseña" required>
+      <button type="submit">Crear cuenta</button>
+    </form>
+
+    <div class="links">
+      <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

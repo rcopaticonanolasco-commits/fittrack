@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niños Calm – TuBienestar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="logo">TuBienestar</div>
+      <ul class="menu">
+        <li><a href="dashboard.html">🏠 <span>Inicio</span></a></li>
+        <li><a href="meditacion.html">🧘‍♂️ <span>Meditación</span></a></li>
+        <li><a href="sueno.html">🌙 <span>Sueño</span></a></li>
+        <li><a href="musica.html">🎵 <span>Música</span></a></li>
+        <li><a href="paisajes.html">🌄 <span>Paisajes sonoros</span></a></li>
+        <li><a href="ninos.html" class="active">👶 <span>Niños Calm</span></a></li>
+        <li><a href="perfil.html">👤 <span>Perfil</span></a></li>
+      </ul>
+    </div>
+    <footer>Política de privacidad</footer>
+  </aside>
+
+  <main class="main">
+    <button id="toggleMenu" class="hamburger">☰</button>
+    <h1>Niños Calm</h1>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <h3>Historias para niños</h3>
+          <p>Cuentos relajantes para antes de dormir.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=800&q=80">
+        <div class="info">
+          <h3>Meditaciones para pequeños</h3>
+          <p>Aprende a respirar y relajarte.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+
+    <script>
+        const toggleMenu = document.getElementById("toggleMenu");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        toggleMenu.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+        overlay.classList.toggle("show");
+        });
+
+        overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+        });
+  </script>
+</body>
+</html>

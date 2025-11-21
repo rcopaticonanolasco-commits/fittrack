@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutina Diaria & Pulso – TuBienestar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="logo">TuBienestar</div>
+      <ul class="menu">
+        <li><a href="dashboard.html">🏠 <span>Inicio</span></a></li>
+        <li><a href="meditacion.html">🧘‍♂️ <span>Meditación</span></a></li>
+        <li><a href="sueno.html">🌙 <span>Sueño</span></a></li>
+        <li><a href="musica.html">🎵 <span>Música</span></a></li>
+        <li><a href="paisajes.html">🌄 <span>Paisajes sonoros</span></a></li>
+        <li><a href="ninos.html">👶 <span>Niños Calm</span></a></li>
+        <li><a href="perfil.html">👤 <span>Perfil</span></a></li>
+        <li><a href="rutina.html" class="active">💪 <span>Rutina</span></a></li>
+      </ul>
+    </div>
+    <footer>Política de privacidad</footer>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <button id="toggleMenu" class="hamburger">☰</button>
+    <h1>Rutina Diaria & Pulso</h1>
+
+    <div class="cards">
+      <!-- Ejemplo de tarjetas de ejercicios -->
+      <article class="card media-card">
+        <img src="https://images.unsplash.com/photo-1554284126-8c5f415a1b2f?auto=format&fit=crop&w=800&q=80" alt="Estiramientos">
+        <div class="info">
+          <h3>Estiramientos</h3>
+          <p>Comienza tu día activando tu cuerpo</p>
+        </div>
+      </article>
+      <article class="card media-card">
+        <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=800&q=80" alt="Cardio">
+        <div class="info">
+          <h3>Cardio</h3>
+          <p>Eleva tu ritmo y fortalece el corazón</p>
+        </div>
+      </article>
+      <article class="card media-card">
+        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=800&q=80" alt="Yoga">
+        <div class="info">
+          <h3>Yoga</h3>
+          <p>Conecta tu mente y cuerpo</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Medición del pulso -->
+    <section class="pulse-section">
+      <h2>Medir Pulso</h2>
+      <p>Coloca tu dedo sobre la cámara y activa la linterna para obtener una lectura más precisa.</p>
+      <video id="video" width="300" height="200" autoplay muted style="display:none;"></video>
+      <canvas id="canvas" style="display:none;"></canvas>
+      <button id="startPulse">📈 Iniciar Medición</button>
+      <p>Frecuencia cardíaca: <span id="pulseValue">--</span> BPM</p>
+    </section>
+
+  </main>
+
+  <script>
+    const toggleMenu = document.getElementById("toggleMenu");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    toggleMenu.addEventListener("click", () => {
+      sidebar.classList.toggle("show");
+      if(overlay) overlay.classList.toggle("show");
+    });
+
+    if (overlay) {
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+      });
+    }
+
+    // Medición de pulso usando la cámara
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const startPulse = document.getElementById("startPulse");
+    const pulseValue = document.getElementById("pulseValue");
+
+    startPulse.addEventListener("click", async () => {
+      pulseValue.textContent = "Midiendo...";
+      // Pedir acceso a la cámara
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+      video.srcObject = stream;
+
+      let readings = [];
+      const measureDuration = 15000; // 15 segundos
+      const startTime = Date.now();
+
+      const interval = setInterval(() => {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let sum = 0;
+        for(let i = 0; i < frame.data.length; i += 4) {
+          sum += frame.data[i]; // solo rojo
+        }
+        readings.push(sum / (frame.data.length / 4));
+
+        if(Date.now() - startTime > measureDuration) {
+          clearInterval(interval);
+          stream.getTracks().forEach(track => track.stop());
+
+          // cálculo básico del BPM (simplificado)
+          const diffs = [];
+          for(let i=1; i<readings.length; i++){
+            diffs.push(readings[i] - readings[i-1]);
+          }
+          const peaks = diffs.filter(d => d > 0).length;
+          const bpm = Math.round((peaks / measureDuration) * 1000 * 60);
+          pulseValue.textContent = bpm > 0 ? bpm : "--";
+        }
+      }, 100); // capturar cada 100ms
+    });
+  </script>
+
+</body>
+</html>
